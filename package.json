@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --config vite.config.js",
+    "vercel-build": "vite build --config vite.config.js && node vercel-build.js",
+    "postbuild": "node vercel-build.js",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -44,6 +46,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
+    "emailjs-com": "^3.2.0",
     "embla-carousel-react": "^8.3.0",
     "framer-motion": "^12.6.2",
     "input-otp": "^1.2.4",
@@ -81,6 +84,6 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^4.2.1"
   }
 }

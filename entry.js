@@ -1,6 +1,11 @@
-// Root-level entry file that imports App directly
-import { createRoot } from 'react-dom/client';
+// Simple entry point that avoids TypeScript imports
+import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './src/App';
 import './src/index.css';
 
-createRoot(document.getElementById("root")).render(App()); 
+// Use older React 17 style rendering for maximum compatibility
+ReactDOM.render(
+  React.createElement(App, null),
+  document.getElementById('root')
+); 

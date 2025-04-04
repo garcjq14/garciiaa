@@ -7,7 +7,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   base: './',
   plugins: [
-    react(),
+    react({
+      include: ['**/*.jsx', '**/*.js', '**/*.tsx', '**/*.ts'],
+    }),
     tsconfigPaths(),
   ],
   resolve: {
@@ -27,7 +29,8 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'),
+      input: path.resolve(__dirname, 'vercel-index.html'),
+      external: ['/src/main.tsx']
     },
   }
 }); 

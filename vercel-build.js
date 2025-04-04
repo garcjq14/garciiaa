@@ -8,6 +8,21 @@ const __dirname = path.dirname(__filename);
 
 console.log('🔍 Running enhanced Vercel build helper script...');
 
+// Copy the output HTML file to index.html
+try {
+  const srcHtmlPath = path.join(__dirname, 'dist', 'vercel-index.html');
+  const destHtmlPath = path.join(__dirname, 'dist', 'index.html');
+  
+  if (fs.existsSync(srcHtmlPath)) {
+    fs.copyFileSync(srcHtmlPath, destHtmlPath);
+    console.log('✅ Successfully copied vercel-index.html to index.html');
+  } else {
+    console.error('⚠️ vercel-index.html not found in dist folder');
+  }
+} catch (error) {
+  console.error('Error copying HTML file:', error);
+}
+
 // Try to copy compiled JS files if they exist
 try {
   const srcPath = path.join(__dirname, 'src');
